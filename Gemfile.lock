@@ -1,0 +1,46 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (3.2.12)
+      activesupport (= 3.2.12)
+      builder (~> 3.0.0)
+    activeresource (3.2.12)
+      activemodel (= 3.2.12)
+      activesupport (= 3.2.12)
+    activesupport (3.2.12)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    builder (3.0.4)
+    faraday (0.8.6)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
+    hashie (2.0.2)
+    highrise (3.0.5)
+      activeresource (~> 3.0)
+    i18n (0.6.4)
+    inflection (1.0.0)
+    json (1.7.7)
+    mime-types (1.21)
+    multi_json (1.6.1)
+    multipart-post (1.2.0)
+    rb-appscript (0.6.1)
+    system_timer (1.2.4)
+    zendesk_api (0.3.1)
+      faraday (>= 0.8.0)
+      faraday_middleware (>= 0.8.7)
+      hashie
+      inflection
+      json
+      mime-types
+      multipart-post
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  highrise
+  rb-appscript
+  system_timer
+  zendesk_api

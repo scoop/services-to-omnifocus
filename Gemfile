@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+gem "activesupport"
+gem "rb-appscript"
+gem "highrise"
+gem "zendesk_api"
+gem "system_timer"
