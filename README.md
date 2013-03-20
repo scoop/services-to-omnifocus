@@ -6,7 +6,7 @@ They have some built-in intelligence to sync changes back and forth, but it only
 
 ## Supported services
 
-As of this writing, scripts to query the APIs of [Zendesk](http://zendesk.com) and [Highrise](http://highrisehq.com) are included.
+As of this writing, scripts to query the APIs of [Zendesk](http://zendesk.com), [Highrise](http://highrisehq.com), and [GitHub](http://github.com/) Issues are included.
 
 ## Setting up
 

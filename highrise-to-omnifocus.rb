@@ -1,5 +1,23 @@
 #!/usr/bin/ruby
-require "config"
+#
+# Create OmniFocus tasks for tasks assigned to you in 37signals' Highrise.
+# When tasks change in Highrise, those changes are reflected in OmniFocus. This
+# includes options like start and due dates as well as task titles. If you
+# check off a task in OmniFocus, it is completed in Highrise. Other changes
+# to tasks in OmniFocus are *not* synced back to Highrise at this point.
+#
+# Authentication data is taken from these environment variables:
+#
+#   HIGHRISE_HOST: Contains the name of the virtual host of your Highrise account
+#   HIGHRISE_USER: Contains the API token of your Highrise user, found under
+#                  "Account & settings" > "My info" > "API token"
+
+require "bootstrap"
+require "highrise"
+
+Highrise::Base.site = ENV['HIGHRISE_HOST']
+Highrise::Base.user = ENV['HIGHRISE_USER']
+Highrise::Base.format = :xml
 
 class Highrise::Task
   def name_with_id
