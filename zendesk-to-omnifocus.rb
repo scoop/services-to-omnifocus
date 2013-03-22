@@ -20,7 +20,7 @@ ZENDESK_VIEW_ID = ENV['ZENDESK_VIEW']
 ZENDESK_BASE_URI = ENV['ZENDESK_HOST']
 ZENDESK_CONTEXT = ENV['ZENDESK_CONTEXT']
 
-zendesk = ZendeskAPI::Client.new do |config|
+@zendesk = ZendeskAPI::Client.new do |config|
   config.url = File.join(ENV['ZENDESK_HOST'], '/api/v2')
   config.username = ENV['ZENDESK_USER']
   config.password = ENV['ZENDESK_PASS']
@@ -31,12 +31,12 @@ project = omnifocus.flattened_projects["Zendesk"].get
 
 def ticket_name(row)
   if row.organization_id
-    organization = zendesk.organization.find(:id => row.organization.id)
+    organization = @zendesk.organization.find(:id => row.organization.id)
   end
   "##{row.ticket.id}: #{organization ? organization.name + ': ' : ''} #{row.subject}"
 end
 
-zendesk.views.find(:id => ZENDESK_VIEW_ID).rows.each do |row|
+@zendesk.views.find(:id => ZENDESK_VIEW_ID).rows.each do |row|
   task = project.tasks[its.name.contains(row.ticket.id)].first.get rescue nil
 
   if task
