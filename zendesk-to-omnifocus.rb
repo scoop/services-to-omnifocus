@@ -18,6 +18,7 @@ require "zendesk_api"
 
 ZENDESK_VIEW_ID = ENV['ZENDESK_VIEW']
 ZENDESK_BASE_URI = ENV['ZENDESK_HOST']
+ZENDESK_CONTEXT = ENV['ZENDESK_CONTEXT']
 
 zendesk = ZendeskAPI::Client.new do |config|
   config.url = File.join(ENV['ZENDESK_HOST'], '/api/v2')
@@ -43,7 +44,7 @@ zendesk.views.find(:id => ZENDESK_VIEW_ID).rows.each do |row|
     when 'Open' then
       if task.context && task.context.name.get == 'Waiting For'
         puts "Marking Ticket ##{row.ticket.id} as in progress"
-        task.context.set omnifocus.flattened_contexts["Online"]
+        task.context.set omnifocus.flattened_contexts[ZENDESK_CONTEXT]
       end
     when 'Solved' then
       unless task.completed.get
