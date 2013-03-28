@@ -6,7 +6,7 @@ They have some built-in intelligence to sync changes back and forth, but it only
 
 ## Supported services
 
-As of this writing, scripts to query the APIs of [Zendesk](http://zendesk.com), [Highrise](http://highrisehq.com), and [GitHub](http://github.com/) Issues are included.
+As of this writing, scripts to query the APIs of [Zendesk](http://zendesk.com), [Highrise](http://highrisehq.com), [GitHub](http://github.com/) Issues, and [Trello](http://trello.com/) are included. See the notes in the header of the respective plugins for implementation notes.
 
 ## Setting up
 
@@ -16,7 +16,9 @@ The API dependencies and such are managed with bundler. After cloning the reposi
 
 ## Running
 
-I run the scripts from a [Keyboard Maestro](http://keyboardmaestro.com) macro. You can also run it through launchd, on login, etc.
+I run the master script (`services-to-omnifocus.rb`) from a [Keyboard Maestro](http://keyboardmaestro.com) macro. It will run all of the plugins contained in the `plugins` subdirectory. If you don't care about a particular service, move its plugin into the `plugins_disabled` directory.
+
+You can also run it through launchd, on login, etc.
 
 ## Customizing
 
