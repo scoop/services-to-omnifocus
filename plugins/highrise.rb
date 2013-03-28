@@ -38,8 +38,7 @@ class Highrise::Task
   end
 end
 
-omnifocus = Appscript.app('OmniFocus').default_document
-project = omnifocus.flattened_projects["Highrise"].get
+project = $omnifocus.flattened_projects["Highrise"].get
 
 Highrise::Task.find(:all, :from => :completed).each do |t|
   next unless t.updated_at >= 1.day.ago

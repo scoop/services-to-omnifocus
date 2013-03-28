@@ -24,10 +24,18 @@ OptionParser.new do |opts|
   opts.on('-v', '--verbose', 'Run verbosely') do |v|
     $options[:verbose] = v
   end
+  opts.on('-d', '--development', 'Run in development mode, taking plugins from plugins_develop/') do |d|
+    $options[:develop] = d
+  end
 end.parse!
 
-plugin_dir = File.join(File.dirname(File.expand_path(__FILE__)), 'plugins')
+$omnifocus = Appscript.app('OmniFocus').default_document
+
+plugin_dir = File.join(File.dirname(File.expand_path(__FILE__)), 
+                   ($options[:develop] ? 'plugins_develop' : 'plugins'))
 Dir.glob(File.join(plugin_dir, '*.rb')).each do |plugin|
   puts 'Processing "%s" plugin' % File.basename(plugin, '.rb') if $options[:verbose]
   require plugin
 end
+
+$omnifocus.synchronize

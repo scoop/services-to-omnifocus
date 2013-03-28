@@ -24,8 +24,7 @@ ZENDESK_CONTEXT = ENV['ZENDESK_CONTEXT']
   config.password = ENV['ZENDESK_PASS']
 end
 
-omnifocus = Appscript.app('OmniFocus').default_document
-project = omnifocus.flattened_projects["Zendesk"].get
+project = $omnifocus.flattened_projects["Zendesk"].get
 
 def ticket_name(row)
   if row.organization_id
@@ -42,7 +41,7 @@ end
     when 'Open' then
       if task.context && task.context.name.get == 'Waiting For'
         puts "Marking Ticket ##{row.ticket.id} as in progress"
-        task.context.set omnifocus.flattened_contexts[ZENDESK_CONTEXT]
+        task.context.set $omnifocus.flattened_contexts[ZENDESK_CONTEXT]
       end
     when 'Solved' then
       unless task.completed.get
@@ -52,7 +51,7 @@ end
     when 'Pending', 'On-hold' then
       unless task.context.name.get == 'Waiting For'
         puts "Marking Ticket ##{row.ticket.id} as Waiting For"
-        task.context.set omnifocus.flattened_contexts["Waiting For"]
+        task.context.set $omnifocus.flattened_contexts["Waiting For"]
       end
     end
   else

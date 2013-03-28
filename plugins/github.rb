@@ -12,9 +12,7 @@
 require "github_api"
 
 github = Github.new :oauth_token => ENV['GITHUB_TOKEN']
-
-omnifocus = Appscript.app('OmniFocus').default_document
-project = omnifocus.flattened_projects["GitHub"].get
+project = $omnifocus.flattened_projects["GitHub"].get
 
 def get_repo_name(html_url)
   URI(html_url).path.split(/\//)[1..2].join('/')
