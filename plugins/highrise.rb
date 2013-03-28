@@ -1,4 +1,3 @@
-#!/usr/bin/ruby
 #
 # Create OmniFocus tasks for tasks assigned to you in 37signals' Highrise.
 # When tasks change in Highrise, those changes are reflected in OmniFocus. This
@@ -12,7 +11,6 @@
 #   HIGHRISE_USER: Contains the API token of your Highrise user, found under
 #                  "Account & settings" > "My info" > "API token"
 
-require "bootstrap"
 require "highrise"
 
 Highrise::Base.site = ENV['HIGHRISE_HOST']

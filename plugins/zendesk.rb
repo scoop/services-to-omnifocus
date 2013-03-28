@@ -1,4 +1,3 @@
-#!/usr/bin/ruby
 #
 # Create OmniFocus tasks for tickets assigned to you in Zendesk.
 # When tickets change in Zendesk, those changes are reflected in OmniFocus. Changes
@@ -13,7 +12,6 @@
 # Additionally, the script needs the ID of a view in Zendesk that contains all of your tickets
 # in every state (new, open, pending, on-hold, solved, closed) in the variable ZENDESK_VIEW.
 
-require "bootstrap"
 require "zendesk_api"
 
 ZENDESK_VIEW_ID = ENV['ZENDESK_VIEW']

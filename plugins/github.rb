@@ -1,4 +1,3 @@
-#!/usr/bin/ruby
 #
 # Create OmniFocus tasks for issues assigned to you in GitHub. Works across repos.
 # When issues change in GitHub, those changes are reflected in OmniFocus. Changes
@@ -10,7 +9,6 @@
 #                 (http://developer.github.com/v3/oauth/#create-a-new-authorization)
 #
 
-require "bootstrap"
 require "github_api"
 
 github = Github.new :oauth_token => ENV['GITHUB_TOKEN']
