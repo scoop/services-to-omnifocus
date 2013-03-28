@@ -24,6 +24,7 @@ Trello.configure do |config|
 end
 
 Trello::Member.find('my').cards.each do |card|
+  next if card.board.closed?
   project_name = card.board.name
   project = $omnifocus.flattened_projects[project_name].get
   task_id = "[#%d]" % card.short_id
