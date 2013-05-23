@@ -51,7 +51,7 @@ Trello::Member.find('my').cards.each do |card|
     }
   end
 
-  if checklist = card.checklists.first
+  if task && checklist = card.checklists.first
     completed_items = card.check_item_states.
       find_all { |is| is.state == 'complete' }.collect(&:item_id)
     checklist.items.each do |item|
