@@ -6,7 +6,7 @@ Some service integrations have built-in intelligence to sync changes back and fo
 
 ## Supported services
 
-As of this writing, scripts to query the APIs of [Zendesk](http://zendesk.com), [Highrise](http://highrisehq.com), [GitHub](http://github.com/) Issues, and [Trello](http://trello.com/) are included. See the notes in the header of the respective plugins for implementation notes.
+As of this writing, scripts to query the APIs of [Autotask](http://www.autotask.com/), [Zendesk](http://zendesk.com), [Highrise](http://highrisehq.com), [GitHub](http://github.com/) Issues, and [Trello](http://trello.com/) are included. See the notes in the header of the respective plugins for implementation notes.
 
 ## Setting up
 
