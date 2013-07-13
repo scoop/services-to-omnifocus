@@ -29,11 +29,11 @@ class Highrise::Task
 
   def start_date
     case frame
-    when 'today', 'overdue': Date.today.midnight
-    when 'tomorrow': 1.day.from_now.midnight
-    when 'this_week': Date.today.beginning_of_week.midnight
-    when 'next_week': 1.week.from_now.beginning_of_week.midnight
-    when 'later': 1.month.from_now.midnight
+    when 'today', 'overdue' then Date.today.midnight
+    when 'tomorrow' then 1.day.from_now.midnight
+    when 'this_week' then Date.today.beginning_of_week.midnight
+    when 'next_week' then 1.week.from_now.beginning_of_week.midnight
+    when 'later' then 1.month.from_now.midnight
     end
   end
 end

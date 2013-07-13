@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/scoop/autotask_api.git
+  revision: 24ff912e7a9b1556e29783ef33c97ac82b5e582b
+  specs:
+    autotask_api (0.0.3)
+      activesupport (~> 3.2.0)
+      savon (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -11,6 +19,9 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.3)
+    akami (1.2.0)
+      gyoku (>= 0.4.0)
+      nokogiri (>= 1.4.0)
     builder (3.0.4)
     faraday (0.8.6)
       multipart-post (~> 1.1)
@@ -22,10 +33,14 @@ GEM
       multi_json (~> 1.4)
       nokogiri (~> 1.5.2)
       oauth2
+    gyoku (1.0.0)
+      builder (>= 2.1.2)
     hashie (2.0.2)
     highrise (3.0.5)
       activeresource (~> 3.0)
     httpauth (0.2.0)
+    httpi (2.0.2)
+      rack
     i18n (0.6.4)
     inflection (1.0.0)
     json (1.7.7)
@@ -36,6 +51,7 @@ GEM
     multi_xml (0.5.3)
     multipart-post (1.2.0)
     nokogiri (1.5.8)
+    nori (2.1.0)
     oauth (0.4.7)
     oauth2 (0.9.1)
       faraday (~> 0.8)
@@ -54,7 +70,17 @@ GEM
       json
       oauth (~> 0.4.5)
       rest-client (~> 1.6.7)
-    system_timer (1.2.4)
+    savon (2.2.0)
+      akami (~> 1.2.0)
+      builder (>= 2.1.2)
+      gyoku (~> 1.0.0)
+      httpi (~> 2.0.2)
+      nokogiri (>= 1.4.0)
+      nori (~> 2.1.0)
+      wasabi (~> 3.1.0)
+    wasabi (3.1.0)
+      httpi (~> 2.0)
+      nokogiri (>= 1.4.0)
     zendesk_api (0.3.1)
       faraday (>= 0.8.0)
       faraday_middleware (>= 0.8.7)
@@ -69,9 +95,9 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  autotask_api!
   github_api
   highrise
   rb-appscript
   ruby-trello
-  system_timer
   zendesk_api
