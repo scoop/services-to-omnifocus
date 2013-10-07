@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/scoop/autotask_api.git
-  revision: 24ff912e7a9b1556e29783ef33c97ac82b5e582b
+  revision: ddeb7d00e79563f37d34b1b842d5ef62c5f1a345
   specs:
-    autotask_api (0.0.3)
-      activesupport (~> 3.2.0)
+    autotask_api (0.0.5)
+      activesupport
       savon (~> 2.0)
 
 GEM
@@ -33,25 +33,26 @@ GEM
       multi_json (~> 1.4)
       nokogiri (~> 1.5.2)
       oauth2
-    gyoku (1.0.0)
+    gyoku (1.1.0)
       builder (>= 2.1.2)
     hashie (2.0.2)
     highrise (3.0.5)
       activeresource (~> 3.0)
     httpauth (0.2.0)
-    httpi (2.0.2)
+    httpi (2.1.0)
       rack
+      rubyntlm (~> 0.3.2)
     i18n (0.6.4)
     inflection (1.0.0)
     json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
     mime-types (1.21)
-    multi_json (1.6.1)
+    multi_json (1.7.7)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
-    nokogiri (1.5.8)
-    nori (2.1.0)
+    nokogiri (1.5.10)
+    nori (2.3.0)
     oauth (0.4.7)
     oauth2 (0.9.1)
       faraday (~> 0.8)
@@ -70,17 +71,18 @@ GEM
       json
       oauth (~> 0.4.5)
       rest-client (~> 1.6.7)
-    savon (2.2.0)
+    rubyntlm (0.3.4)
+    savon (2.3.0)
       akami (~> 1.2.0)
       builder (>= 2.1.2)
-      gyoku (~> 1.0.0)
-      httpi (~> 2.0.2)
-      nokogiri (>= 1.4.0)
-      nori (~> 2.1.0)
-      wasabi (~> 3.1.0)
-    wasabi (3.1.0)
+      gyoku (~> 1.1.0)
+      httpi (~> 2.1.0)
+      nokogiri (>= 1.4.0, < 1.6)
+      nori (~> 2.3.0)
+      wasabi (~> 3.2.0)
+    wasabi (3.2.0)
       httpi (~> 2.0)
-      nokogiri (>= 1.4.0)
+      nokogiri (>= 1.4.0, < 1.6)
     zendesk_api (0.3.1)
       faraday (>= 0.8.0)
       faraday_middleware (>= 0.8.7)
@@ -97,7 +99,7 @@ DEPENDENCIES
   activesupport
   autotask_api!
   github_api
-  highrise
+  highrise (~> 3.0)
   rb-appscript
   ruby-trello
   zendesk_api
