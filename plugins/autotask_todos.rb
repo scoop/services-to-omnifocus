@@ -18,6 +18,7 @@
 require "autotask_api"
 
 AUTOTASK_TODO_REGION = ENV['AUTOTASK_WSDL'].match(/webservices(\d)/)[1]
+AUTOTASK_OFFSET = ENV['AUTOTASK_OFFSET'] || 6 * 3600
 
 @client = AutotaskAPI::Client.new do |client|
     client.basic_auth = [
@@ -58,8 +59,8 @@ end
     else
       update_if_changed task, :name, todo_name(todo)
       update_if_changed task, :note, todo_description(todo)
-      update_if_changed task, :start_date, todo.start_time
-      update_if_changed task, :due_date, todo.end_time
+      update_if_changed task, :start_date, todo.start_time + AUTOTASK_OFFSET
+      update_if_changed task, :due_date, todo.end_time + AUTOTASK_OFFSET
     end
   else
     puts "Adding Todo #{todo.id}"
