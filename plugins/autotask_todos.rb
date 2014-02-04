@@ -47,6 +47,12 @@ def todo_description(todo)
   "#{todo.description}\n\nhttps://ww#{AUTOTASK_TODO_REGION}.autotask.net/Autotask/AutotaskExtend/ExecuteCommand.aspx?Code=OpenAccount&AccountID=#{todo.account_id}"
 end
 
+def time_offset(time)
+  time += AUTOTASK_OFFSET
+  # time += 12 * 3600 if time.hour > 7
+  time
+end
+
 @client.entities_for(@query).each do |todo|
   task = project.tasks[its.name.contains(todo.id)].first.get rescue nil
 
@@ -59,8 +65,8 @@ end
     else
       update_if_changed task, :name, todo_name(todo)
       update_if_changed task, :note, todo_description(todo)
-      update_if_changed task, :start_date, todo.start_time + AUTOTASK_OFFSET
-      update_if_changed task, :due_date, todo.end_time + AUTOTASK_OFFSET
+      update_if_changed task, :start_date, todo.start_time.to_date
+      # update_if_changed task, :due_date, time_offset(todo.end_time)
     end
   else
     puts "Adding Todo #{todo.id}"
@@ -68,8 +74,8 @@ end
       with_properties: {
       name: todo_name(todo),
       note: todo_description(todo),
-      start_date: todo.start_time,
-      due_date: todo.end_time
+      start_date: todo.start_time.to_date
     }
+    # due_date: time_offset(todo.end_time)
   end
 end

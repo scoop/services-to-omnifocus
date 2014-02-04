@@ -8,7 +8,10 @@ def its
 end
 
 def update_if_changed(task, field, value)
-  if task.send(field).get != value
+  current_value = task.send(field).get
+  current_value = current_value.to_date if current_value.is_a?(Time)
+
+  if current_value != value
     puts "Updating field #{field} of task #{task.name.get}"
     task.send(field).set value
   end
