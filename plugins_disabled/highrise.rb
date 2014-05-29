@@ -61,7 +61,7 @@ Highrise::Task.find(:all).each do |t|
       update_if_changed task, :note, t.url
       update_if_changed task, :name, t.name_with_id
       update_if_changed task, :due_date, t.due_at
-      update_if_changed task, :start_date, t.start_date
+      update_if_changed task, :defer_date, t.start_date
     end
   else
     puts 'Adding: ' + t.name_with_id
@@ -69,7 +69,7 @@ Highrise::Task.find(:all).each do |t|
       :name => t.name_with_id,
       :note => t.url,
       :due_date => t.due_at,
-      :start_date => t.start_date
+      :defer_date => t.start_date
     }
   end
 end

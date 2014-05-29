@@ -64,8 +64,8 @@ end
       end
     else
       update_if_changed task, :name, todo_name(todo)
-      update_if_changed task, :note, todo_description(todo)
-      update_if_changed task, :start_date, todo.start_time.to_date
+      # update_if_changed task, :note, todo_description(todo)
+      update_if_changed task, :defer_date, todo.start_time.to_date
       # update_if_changed task, :due_date, time_offset(todo.end_time)
     end
   else
@@ -74,7 +74,7 @@ end
       with_properties: {
       name: todo_name(todo),
       note: todo_description(todo),
-      start_date: todo.start_time.to_date
+      defer_date: todo.start_time.to_date
     }
     # due_date: time_offset(todo.end_time)
   end
