@@ -34,9 +34,9 @@ end
 
 @query = AutotaskAPI::QueryXML.new do |query|
   query.entity = 'ticket'
-  query.field = 'AssignedResourceID'
-  query.expression = @my_user.id
 end
+@query.add_condition 'CreateDate', 'GreaterThan', 3.months.ago.to_s
+@query.add_condition 'AssignedToResourceID', 'Equals', @my_user.id
 
 project = $omnifocus.flattened_projects["Autotask"].get
 

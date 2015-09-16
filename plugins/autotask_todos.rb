@@ -32,9 +32,9 @@ end
 
 @query = AutotaskAPI::QueryXML.new do |query|
   query.entity = 'accounttodo'
-  query.field = 'AssignedToResourceID'
-  query.expression = @my_user.id
 end
+@query.add_condition 'AssignedToResourceID', 'Equals', @my_user.id
+@query.add_condition 'CreateDateTime', 'GreaterThan', 3.months.ago.to_s
 
 project = $omnifocus.flattened_projects["Autotask"].get
 
