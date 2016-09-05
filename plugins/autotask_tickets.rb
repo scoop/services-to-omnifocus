@@ -36,7 +36,7 @@ end
   query.entity = 'ticket'
 end
 @query.add_condition 'CreateDate', 'GreaterThan', 3.months.ago.to_s
-@query.add_condition 'AssignedToResourceID', 'Equals', @my_user.id
+@query.add_condition 'AssignedResourceID', 'Equals', @my_user.id
 
 project = $omnifocus.flattened_projects["Autotask"].get
 
