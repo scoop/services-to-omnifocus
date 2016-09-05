@@ -41,4 +41,4 @@ Dir.glob(File.join(plugin_dir, '*.rb')).each do |plugin|
   require plugin
 end
 
-$omnifocus.synchronize
+#$omnifocus.synchronize
