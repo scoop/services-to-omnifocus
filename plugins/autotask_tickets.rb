@@ -56,12 +56,13 @@ end
         task.completed.set true
       end
     when *AUTOTASK_WAITING then
-      unless task.context.name.get == 'Waiting For'
-        puts "Marking Ticket #{ticket.ticket_number} as Waiting For"
-        task.context.set $omnifocus.flattened_contexts["Waiting For"]
+      unless task.context.name.get == 'Waiting'
+        puts "Marking Ticket #{ticket.ticket_number} as Waiting"
+        task.context.set $omnifocus.flattened_contexts["Waiting"]
+        task.flagged.set false
       end
     else
-      if task.context && task.context.name.get == 'Waiting For'
+      if task.context && task.context.name.get == 'Waiting'
         puts "Marking Ticket #{ticket.ticket_number} as in progress"
         task.context.set $omnifocus.flattened_contexts[AUTOTASK_CONTEXT]
       end
