@@ -65,12 +65,14 @@ end
       if task.context && task.context.name.get == 'Waiting'
         puts "Marking Ticket #{ticket.ticket_number} as in progress"
         task.context.set $omnifocus.flattened_contexts[AUTOTASK_CONTEXT]
+        task.flagged.set true
       end
     end
   else
     puts "Adding Ticket #{ticket.ticket_number}"
     project.make :new => :task, :with_properties => {
       :name => ticket_name(ticket),
+      :flagged => true,
       :note => "https://ww#{AUTOTASK_REGION}.autotask.net/Autotask/AutotaskExtend/ExecuteCommand.aspx?Code=OpenTicketDetail&TicketNumber=#{ticket.ticket_number}"
     }
   end
